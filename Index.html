@@ -1,0 +1,1859 @@
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEON CONVERT | We Turn Your Business Into a Money Machine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #0B0B0B;
+            --charcoal: #151515;
+            --neon-purple: #7F00FF;
+            --neon-blue: #00E0FF;
+            --neon-pink: #FF00FF;
+            --white: #FFFFFF;
+            --gray: #888888;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--neon-purple), var(--neon-blue));
+            border-radius: 4px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(11, 11, 11, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 5%;
+            background: rgba(11, 11, 11, 0.95);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            border: none;
+            padding: 12px 28px;
+            color: white;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(127, 0, 255, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 30px rgba(127, 0, 255, 0.5);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 120px 5% 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--neon-purple);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--neon-blue);
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--neon-pink);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -10s;
+            opacity: 0.2;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.9); }
+            75% { transform: translate(30px, 50px) scale(1.05); }
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: particle-float 15s infinite linear;
+        }
+
+        @keyframes particle-float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--neon-blue);
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge i {
+            color: var(--neon-purple);
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue), var(--neon-purple));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            color: white;
+            border: none;
+            box-shadow: 0 0 30px rgba(127, 0, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(127, 0, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--neon-blue);
+            background: var(--glass-bg);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            padding: 80px 5%;
+            background: var(--charcoal);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            opacity: 0.6;
+            margin-bottom: 60px;
+        }
+
+        .trust-badge {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray);
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .trust-badge:hover {
+            filter: grayscale(0%);
+            color: var(--white);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-purple);
+            box-shadow: 0 20px 40px rgba(127, 0, 255, 0.2);
+        }
+
+        .stars {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .reviewer-info h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .reviewer-info p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 5%;
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(127, 0, 255, 0.1), rgba(0, 224, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-purple);
+            box-shadow: 0 30px 60px rgba(127, 0, 255, 0.3);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 25px;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-features li i {
+            color: var(--neon-blue);
+            font-size: 0.9rem;
+        }
+
+        /* Before/After Section */
+        .before-after {
+            padding: 100px 5%;
+            background: var(--charcoal);
+        }
+
+        .comparison-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .comparison-card {
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .comparison-card:hover {
+            transform: scale(1.02);
+        }
+
+        .comparison-card.before {
+            border-color: #444;
+            opacity: 0.7;
+        }
+
+        .comparison-card.after {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 40px rgba(127, 0, 255, 0.3);
+        }
+
+        .comparison-header {
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .comparison-card.before .comparison-header {
+            background: #222;
+            color: #888;
+        }
+
+        .comparison-card.after .comparison-header {
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            color: white;
+        }
+
+        .comparison-body {
+            padding: 40px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mock-site {
+            width: 100%;
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .mock-site.old {
+            background: #2a2a2a;
+            filter: grayscale(100%);
+        }
+
+        .mock-site.new {
+            background: linear-gradient(135deg, #1a0a2e, #0a1a2e);
+            border: 1px solid var(--neon-purple);
+        }
+
+        .mock-header {
+            height: 30px;
+            background: #333;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .mock-site.new .mock-header {
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+        }
+
+        .mock-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .mock-box {
+            height: 60px;
+            background: #444;
+            border-radius: 5px;
+        }
+
+        .mock-site.new .mock-box {
+            background: rgba(127, 0, 255, 0.3);
+            border: 1px solid var(--neon-purple);
+        }
+
+        .comparison-arrow {
+            font-size: 3rem;
+            color: var(--neon-blue);
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateX(0); opacity: 1; }
+            50% { transform: translateX(10px); opacity: 0.7; }
+        }
+
+        .result-text {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.3rem;
+        }
+
+        .result-text span {
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* Video/Content Section */
+        .content-section {
+            padding: 100px 5%;
+            position: relative;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .content-visual {
+            position: relative;
+        }
+
+        .video-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid var(--glass-border);
+            background: var(--charcoal);
+            aspect-ratio: 16/10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-placeholder {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(127, 0, 255, 0.5);
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(127, 0, 255, 0.8);
+        }
+
+        .video-text {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            backdrop-filter: blur(20px);
+            animation: float-card 6s infinite ease-in-out;
+        }
+
+        .floating-card-1 {
+            top: -20px;
+            right: -20px;
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            bottom: -20px;
+            left: -20px;
+            animation-delay: -3s;
+        }
+
+        @keyframes float-card {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .floating-card .stat-small {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .floating-card p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        .content-text h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .content-text p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.05rem;
+        }
+
+        .feature-list li i {
+            width: 30px;
+            height: 30px;
+            background: rgba(127, 0, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-purple);
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 5%;
+            background: var(--charcoal);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .pricing-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--neon-purple);
+            box-shadow: 0 20px 60px rgba(127, 0, 255, 0.3);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.08) translateY(-10px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .description {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li i {
+            color: var(--neon-blue);
+            font-size: 0.9rem;
+        }
+
+        .pricing-features li.included i {
+            color: var(--neon-blue);
+        }
+
+        .pricing-features li.not-included {
+            color: #555;
+        }
+
+        .pricing-features li.not-included i {
+            color: #444;
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid var(--glass-border);
+            background: transparent;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .pricing-btn:hover {
+            border-color: var(--neon-purple);
+            background: var(--glass-bg);
+        }
+
+        .pricing-card.featured .pricing-btn {
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+            border: none;
+            box-shadow: 0 0 20px rgba(127, 0, 255, 0.4);
+        }
+
+        .pricing-card.featured .pricing-btn:hover {
+            box-shadow: 0 0 30px rgba(127, 0, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(127, 0, 255, 0.1), rgba(0, 224, 255, 0.1));
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .cta-content p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cta-btn-whatsapp {
+            background: #25D366;
+            color: white;
+            border: none;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .cta-btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        .cta-btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 10px 30px rgba(220, 39, 67, 0.3);
+        }
+
+        .cta-btn-instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(220, 39, 67, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 5% 30px;
+            background: var(--black);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+            border-color: transparent;
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            .pricing-card.featured {
+                transform: scale(1);
+                order: -1;
+            }
+            .pricing-card.featured:hover {
+                transform: scale(1.03) translateY(-10px);
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+            .comparison-arrow {
+                transform: rotate(90deg);
+                margin: 20px 0;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .nav-cta {
+                display: none;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .floating-card {
+                display: none;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cursor Effect */
+        .cursor-glow {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(127, 0, 255, 0.15), transparent 70%);
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        body:hover .cursor-glow {
+            opacity: 1;
+        }
+
+        @media (pointer: coarse) {
+            .cursor-glow {
+                display: none;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--glass-border);
+            border-top-color: var(--neon-purple);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">NEON CONVERT</div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-cta" onclick="scrollToSection('contact')">Get Started</button>
+        <div class="mobile-menu" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+            <div class="particles" id="particles"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-fire"></i>
+                <span>Trusted by 50+ Brands in Lagos</span>
+            </div>
+            
+            <h1>
+                We Turn Your Business Into a <span class="gradient-text">Money Machine</span> 🚀
+            </h1>
+            
+            <p class="hero-subtitle">
+                More Customers. More Sales. Better Brand. We build high-converting websites and viral social strategies for barbers, restaurants, and small brands.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Get Started
+                </a>
+                <a href="#work" class="btn btn-secondary">
+                    <i class="fas fa-play"></i>
+                    View Our Work
+                </a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">₦200M+</div>
+                    <div class="stat-label">Revenue Generated</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="section-header fade-in">
+            <div class="section-tag">Testimonials</div>
+            <h2 class="section-title">Don't Just Take Our Word For It</h2>
+            <p class="section-subtitle">See what business owners like you are saying about working with us</p>
+        </div>
+
+        <div class="trust-badges fade-in">
+            <div class="trust-badge">BarberShop Pro</div>
+            <div class="trust-badge">Shawarma King</div>
+            <div class="trust-badge">Lagos Eats</div>
+            <div class="trust-badge">Style Hub</div>
+            <div class="trust-badge">Chop Life</div>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card fade-in">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"Before Neon Convert, my barbershop was struggling to get bookings. Now I'm fully booked 2 weeks in advance! The website they built literally changed my business."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">TK</div>
+                    <div class="reviewer-info">
+                        <h4>Tunde K.</h4>
+                        <p>Fresh Cuts Barbershop, Lekki</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"My shawarma spot went viral on TikTok after they helped with my branding. Sales tripled in just one month. Best investment I've made for my business!"</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">AO</div>
+                    <div class="reviewer-info">
+                        <h4>Amina O.</h4>
+                        <p>Shawarma Queen, Yaba</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"Professional, fast, and they actually understand what Gen Z customers want. My clothing brand's online sales increased by 400% after the relaunch."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">JE</div>
+                    <div class="reviewer-info">
+                        <h4>James E.</h4>
+                        <p>Urban Wear NG, Ikeja</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header fade-in">
+            <div class="section-tag">What We Do</div>
+            <h2 class="section-title">Services That Drive Results</h2>
+            <p class="section-subtitle">Everything you need to dominate your market and attract more customers</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Website Design</h3>
+                <p>High-converting, mobile-first websites that turn visitors into paying customers. Built for speed and SEO.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Custom Design</li>
+                    <li><i class="fas fa-check"></i> Mobile Responsive</li>
+                    <li><i class="fas fa-check"></i> SEO Optimized</li>
+                    <li><i class="fas fa-check"></i> Fast Loading</li>
+                </ul>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Social Media Growth</h3>
+                <p>TikTok, Instagram, and Twitter strategies that make your brand go viral and build a loyal following.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Content Strategy</li>
+                    <li><i class="fas fa-check"></i> Viral Video Creation</li>
+                    <li><i class="fas fa-check"></i> Growth Hacking</li>
+                    <li><i class="fas fa-check"></i> Analytics & Reporting</li>
+                </ul>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Brand Upgrade</h3>
+                <p>Complete brand transformation including logo, colors, and visual identity that stands out from competitors.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Logo Design</li>
+                    <li><i class="fas fa-check"></i> Brand Guidelines</li>
+                    <li><i class="fas fa-check"></i> Visual Identity</li>
+                    <li><i class="fas fa-check"></i> Marketing Materials</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Section -->
+    <section class="before-after" id="work">
+        <div class="section-header fade-in">
+            <div class="section-tag">Transformations</div>
+            <h2 class="section-title">From Invisible to Fully Booked</h2>
+            <p class="section-subtitle">See the difference a professional online presence makes</p>
+        </div>
+
+        <div class="comparison-container">
+            <div class="comparison-card before fade-in">
+                <div class="comparison-header">
+                    <i class="fas fa-times-circle"></i> BEFORE
+                </div>
+                <div class="comparison-body">
+                    <div class="mock-site old">
+                        <div class="mock-header"></div>
+                        <div class="mock-content">
+                            <div class="mock-box"></div>
+                            <div class="mock-box"></div>
+                            <div class="mock-box"></div>
+                            <div class="mock-box"></div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px; color: #888;">
+                        <i class="fas fa-sad-tear" style="font-size: 2rem; display: block; margin-bottom: 10px;"></i>
+                        No website or outdated design<br>
+                        Losing customers to competitors<br>
+                        Zero online presence
+                    </p>
+                </div>
+            </div>
+
+            <div class="comparison-arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+            <div class="comparison-card after fade-in">
+                <div class="comparison-header">
+                    <i class="fas fa-check-circle"></i> AFTER
+                </div>
+                <div class="comparison-body">
+                    <div class="mock-site new">
+                        <div class="mock-header"></div>
+                        <div class="mock-content">
+                            <div class="mock-box"></div>
+                            <div class="mock-box"></div>
+                            <div class="mock-box"></div>
+                            <div class="mock-box"></div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px; color: var(--neon-blue);">
+                        <i class="fas fa-fire" style="font-size: 2rem; display: block; margin-bottom: 10px;"></i>
+                        Modern, high-converting website<br>
+                        Booked out weeks in advance<br>
+                        Strong social media presence
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <p class="result-text fade-in">
+            Average Result: <span>3x More Customers</span> in 30 Days
+        </p>
+    </section>
+
+    <!-- Video/Content Section -->
+    <section class="content-section">
+        <div class="content-grid">
+            <div class="content-visual fade-in">
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <p class="video-text">Watch how we helped businesses go viral</p>
+                    </div>
+                </div>
+                <div class="floating-card floating-card-1">
+                    <div class="stat-small">1M+</div>
+                    <p>Views Generated</p>
+                </div>
+                <div class="floating-card floating-card-2">
+                    <div class="stat-small">50K+</div>
+                    <p>New Followers</p>
+                </div>
+            </div>
+
+            <div class="content-text fade-in">
+                <h2>We Don't Just Build Websites...<br>We Make You Go <span class="gradient-text">Viral</span></h2>
+                <p>In today's market, having a website isn't enough. You need a complete digital strategy that includes TikTok content, Instagram growth, and viral marketing campaigns.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-video"></i> TikTok content strategy that converts</li>
+                    <li><i class="fas fa-chart-line"></i> Data-driven growth tactics</li>
+                    <li><i class="fas fa-users"></i> Community building & engagement</li>
+                    <li><i class="fas fa-trophy"></i> Proven results for local businesses</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="section-header fade-in">
+            <div class="section-tag">Pricing</div>
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle">Choose the package that fits your business goals</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card fade-in">
+                <h3>Starter</h3>
+                <p class="description">Perfect for small businesses just getting started</p>
+                <div class="price">₦50k <span>/one-time</span></div>
+                <ul class="pricing-features">
+                    <li class="included"><i class="fas fa-check"></i> 3-Page Website</li>
+                    <li class="included"><i class="fas fa-check"></i> Mobile Responsive</li>
+                    <li class="included"><i class="fas fa-check"></i> Basic SEO Setup</li>
+                    <li class="included"><i class="fas fa-check"></i> Contact Form</li>
+                    <li class="not-included"><i class="fas fa-times"></i> Social Media Setup</li>
+                    <li class="not-included"><i class="fas fa-times"></i> Content Creation</li>
+                </ul>
+                <button class="pricing-btn">Get Started</button>
+            </div>
+
+            <div class="pricing-card featured fade-in">
+                <div class="popular-badge">Most Popular</div>
+                <h3>Pro</h3>
+                <p class="description">Complete solution for growing businesses</p>
+                <div class="price">₦120k <span>/one-time</span></div>
+                <ul class="pricing-features">
+                    <li class="included"><i class="fas fa-check"></i> 5-Page Website</li>
+                    <li class="included"><i class="fas fa-check"></i> Custom Branding</li>
+                    <li class="included"><i class="fas fa-check"></i> Advanced SEO</li>
+                    <li class="included"><i class="fas fa-check"></i> Social Media Setup</li>
+                    <li class="included"><i class="fas fa-check"></i> 10 Social Posts</li>
+                    <li class="not-included"><i class="fas fa-times"></i> TikTok Management</li>
+                </ul>
+                <button class="pricing-btn">Get Started</button>
+            </div>
+
+            <div class="pricing-card fade-in">
+                <h3>Elite</h3>
+                <p class="description">Full domination package for serious business owners</p>
+                <div class="price">₦250k <span>/month</span></div>
+                <ul class="pricing-features">
+                    <li class="included"><i class="fas fa-check"></i> Unlimited Pages</li>
+                    <li class="included"><i class="fas fa-check"></i> Premium Branding</li>
+                    <li class="included"><i class="fas fa-check"></i> Full SEO Campaign</li>
+                    <li class="included"><i class="fas fa-check"></i> TikTok Growth</li>
+                    <li class="included"><i class="fas fa-check"></i> Weekly Content</li>
+                    <li class="included"><i class="fas fa-check"></i> 24/7 Support</li>
+                </ul>
+                <button class="pricing-btn">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-bg"></div>
+        <div class="cta-content">
+            <h2>Ready to Blow Up Your Business?</h2>
+            <p>Don't let your competitors steal your customers. Let's build something amazing together.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/2348012345678" class="cta-btn cta-btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Chat on WhatsApp
+                </a>
+                <a href="https://instagram.com/neonconvert" class="cta-btn cta-btn-instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    DM on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">NEON CONVERT</div>
+                <p>We help Lagos businesses dominate their market with high-converting websites and viral social media strategies.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Website Design</a></li>
+                    <li><a href="#">Social Media</a></li>
+                    <li><a href="#">Brand Identity</a></li>
+                    <li><a href="#">TikTok Growth</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Work</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:hello@neonconvert.ng">hello@neonconvert.ng</a></li>
+                    <li><a href="tel:+2348012345678">+234 801 234 5678</a></li>
+                    <li><a href="#">Lagos, Nigeria</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Neon Convert. All rights reserved. Built for hustlers who want to win.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
+        });
+
+        // Cursor Glow Effect
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scroll
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Create Particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Intersection Observer for Fade-in Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            alert('Mobile menu clicked! Add your mobile menu logic here.');
+        }
+
+        // Button Click Handlers
+        document.querySelectorAll('.pricing-btn, .btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (!e.target.closest('a')) {
+                    scrollToSection('contact');
+                }
+            });
+        });
+
+        // Play Button Animation
+        document.querySelector('.play-button').addEventListener('click', () => {
+            alert('Video modal would open here! Add your video URL.');
+        });
+
+        // Counter Animation for Stats
+        function animateCounter(element, target, suffix = '') {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + suffix;
+                }
+            }, 30);
+        }
+
+        // Trigger counter animation when stats are visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        if (text.includes('M')) {
+                            animateCounter(stat, 200, 'M+');
+                        } else if (text.includes('%')) {
+                            animateCounter(stat, 100, '%');
+                        } else {
+                            animateCounter(stat, 50, '+');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.hero-stats').forEach(el => statsObserver.observe(el));
+    </script>
+</body>
+</html>'''
+
